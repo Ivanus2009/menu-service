@@ -13,7 +13,9 @@ const {
 
 const redis = new Redis(REDIS_URL);
 const app   = express();
-app.use(cors());
+app.use(cors({
+    origin: '*'   
+  }));
 app.use(express.json());
 
 // Функция, которая стягивает «сырые» данные
