@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const fetch   = require('node-fetch');
 const Redis   = require('ioredis');
+const cors    = require('cors');
 
 const {
   YT_API_KEY,
@@ -12,6 +13,7 @@ const {
 
 const redis = new Redis(REDIS_URL);
 const app   = express();
+app.use(cors());
 app.use(express.json());
 
 // Функция, которая стягивает «сырые» данные
